@@ -35,6 +35,12 @@ public class AlunoMB{
 		return null;
 	}
 	
+	public String remove() {
+		System.out.println("Aluno:" + aluno.getNome());
+		alunoDao.remove(aluno.getId());
+		return null;
+	}
+	
 	@PostConstruct
 	public void init() {
 		alunos = alunoDao.findAll();
