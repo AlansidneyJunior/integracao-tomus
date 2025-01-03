@@ -3,6 +3,7 @@ package br.com.tomus.projeto.managedBeans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import javax.inject.Named;
@@ -32,6 +33,11 @@ public class AlunoMB{
 		alunos.add(aluno);
 		
 		return null;
+	}
+	
+	@PostConstruct
+	public void init() {
+		alunos = alunoDao.findAll();
 	}
 
 	public Aluno getAluno() {
