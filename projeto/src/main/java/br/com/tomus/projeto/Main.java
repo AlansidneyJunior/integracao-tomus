@@ -14,8 +14,9 @@ public class Main {
 
 		AlunoDao alunoDao = (AlunoDao) context.getBean("alunoDao");
 		
-		Aluno aluno = new Aluno("asdasd", "3132", 25);
-		alunoDao.save(aluno);
+		Aluno aluno = new Aluno("Pedro2", "3132", 25);
+		aluno.setId(2L);
+		alunoDao.update(aluno);
 		
 	}
 }

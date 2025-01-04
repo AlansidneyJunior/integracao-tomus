@@ -8,11 +8,13 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<title>Gestão de Alunos</title>
+	<h:head>
+    </h:head>
 </head>
 <body>
 
-	<h1>Alunos</h1>
+	<h1>Gestão de Alunos</h1>
 	<h:form id="form">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome" />
@@ -21,24 +23,32 @@
 			<h:inputText value="#{alunoMB.aluno.cpf}" />
 			<h:outputLabel value="Idade" />
 			<h:inputText value="#{alunoMB.aluno.idade}" />
-			<h:commandButton value="Adicionar" action="#{alunoMB.save}" />
+			<h:commandButton value="Salvar" action="#{alunoMB.save}">
+				<f:ajax render="@form tabelaAluno" />
+			</h:commandButton>
+			<h:commandButton value="Limpar" action="#{alunoMB.clearForm}">
+				<f:ajax render="@form" />
+			</h:commandButton>
 		</h:panelGrid>
-	</h:form>
 
-	<h1>Lista de Alunos:</h1>
-
+	<h1>Lista de Alunos</h1>
 	<h:dataTable value="#{alunoMB.alunos}" var="a" border="2"
 		id="tabelaAluno">
 		<h:column headerText="Nome">#{a.nome}</h:column>
 		<h:column headerText="CPF">#{a.cpf}</h:column>
 		<h:column headerText="Idade">#{a.idade}</h:column>
-		<h:column headerText="Ações" width="70">
-			<h:button value="Consultar" />
-			<h:button value="Editar"/>
+		<h:column headerText="Ações" width="150">
+			<h:commandButton value="Editar" action="#{alunoMB.edit(a)}">
+				<f:ajax render="@form" />
+			</h:commandButton>
 			<h:commandButton value="Excluir" action="#{alunoMB.remove}">
-				<f:setPropertyActionListener value="#{aluno}" target="#{alunoMB.aluno}" />
+				<f:setPropertyActionListener value="#{a}" target="#{alunoMB.aluno}" />
+				<f:ajax render="@form tabelaAluno" />
 			</h:commandButton>
 		</h:column>
 	</h:dataTable>
+	<h:commandButton value="Teste" action="#{alunoMB.teste}"/>
+	</h:form>
+
 </body>
 </html>
