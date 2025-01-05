@@ -22,8 +22,8 @@ public class Aluno {
 	
 	private Integer idade;
 	
-//	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<Nota> notas;
+	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Nota> notas;
 
 	public Aluno() {
 	}
@@ -66,12 +66,12 @@ public class Aluno {
 		this.idade = idade;
 	}
 
-//	public List<Nota> getNotas() {
-//		return notas;
-//	}
-//
-//	public void setNotas(List<Nota> notas) {
-//		this.notas = notas;
-//	}
+	public List<Nota> getNotas() {
+		return notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
 }
 
