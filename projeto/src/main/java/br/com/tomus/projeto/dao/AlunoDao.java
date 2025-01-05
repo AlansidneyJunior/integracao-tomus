@@ -12,10 +12,6 @@ import br.com.tomus.projeto.models.Aluno;
 @Component
 public class AlunoDao {
 	
-	public void  print() {
-		System.out.println("oi");
-		
-	}
 	public Aluno save(Aluno aluno) {
 		Session session = new ConnectionFactory().getConnection();
 		
