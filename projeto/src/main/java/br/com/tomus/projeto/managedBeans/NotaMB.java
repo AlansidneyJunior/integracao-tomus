@@ -43,8 +43,8 @@ public class NotaMB {
             notas.add(nota);
         } else {
             notaDao.update(nota);
-            updateNotaList();
         }
+        updateNotaList();
         clearForm();
         return null;
     }

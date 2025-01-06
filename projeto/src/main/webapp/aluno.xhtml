@@ -38,7 +38,7 @@
             <p:inputText id="cpf" value="#{alunoMB.aluno.cpf}" />
             <p:outputLabel value="Idade" for="idade" />
             <p:inputText id="idade" value="#{alunoMB.aluno.idade}" />
-            <p:commandButton value="Salvar" action="#{alunoMB.save}">
+            <p:commandButton value="Salvar" action="#{alunoMB.save}" update="tabelaAluno form">
                 <f:ajax execute="@form" render="tabelaAluno" />
             </p:commandButton>
             <p:commandButton value="Limpar" action="#{alunoMB.clearForm}">
@@ -53,10 +53,10 @@
             <p:column headerText="CPF" width="200">#{a.cpf}</p:column>
             <p:column headerText="Idade" width="100">#{a.idade}</p:column>
             <p:column headerText="Ações" width="80">
-                <p:commandButton value="Editar" action="#{alunoMB.edit(a)}">
+                <p:commandButton value="Editar" action="#{alunoMB.edit(a)}" update="tabelaAluno form">
                     <f:ajax execute="@form" render="@form" />
                 </p:commandButton>
-                <p:commandButton value="Excluir" action="#{alunoMB.remove}">
+                <p:commandButton value="Excluir" action="#{alunoMB.remove}" update="tabelaAluno form">
                     <f:setPropertyActionListener value="#{a}" target="#{alunoMB.aluno}" />
                     <f:ajax execute="@form" render="tabelaAluno" />
                 </p:commandButton>

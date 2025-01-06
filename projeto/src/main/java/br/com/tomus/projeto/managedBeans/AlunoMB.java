@@ -29,8 +29,8 @@ public class AlunoMB {
     		alunos.add(aluno);    		
     	} else {
     		alunoDao.update(aluno);
-    		updateAlunoList();
     	}
+    	updateAlunoList();
     	clearForm();
         return null;
     }
