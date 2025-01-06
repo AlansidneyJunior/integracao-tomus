@@ -75,9 +75,4 @@ public class AlunoMB {
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
     }
-    
-    public String teste() {
-    	System.out.println("Teste!");
-    	return null;
-    }
 }

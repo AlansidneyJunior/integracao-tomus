@@ -41,10 +41,10 @@
 			<p:inputText value="#{notaMB.nota.professor}" />
 			<p:outputLabel value="Nota" />
 			<p:inputText value="#{notaMB.nota.nota}" />
-			<p:commandButton value="Salvar" action="#{notaMB.save}">
+			<p:commandButton value="Salvar" action="#{notaMB.save}" update="tabelaNota form">
 				<f:ajax render="@form tabelaNota" />
 			</p:commandButton>
-			<p:commandButton value="Limpar" action="#{notaMB.clearForm}">
+			<p:commandButton value="Limpar" action="#{notaMB.clearForm}" update="tabelaNota form">
 				<f:ajax render="@form" />
 			</p:commandButton>
 		</p:panelGrid>
@@ -58,11 +58,11 @@
 			<p:column headerText="Professor">#{n.professor}</p:column>
 			<p:column headerText="Nota">#{n.nota}</p:column>
 			<p:column headerText="Ações" width="150">
-				<p:commandButton value="Editar" action="#{notaMB.edit(n)}">
+				<p:commandButton value="Editar" action="#{notaMB.edit(n)}" update="tabelaNota form">
 					<f:ajax render="@form" />
 				</p:commandButton>
 				<p:commandButton value="Excluir" action="#{notaMB.remove}">
-					<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}" />
+					<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}" update="tabelaNota form"/>
 					<f:ajax render="@form tabelaNota" />
 				</p:commandButton>
 			</p:column>

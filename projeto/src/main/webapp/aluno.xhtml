@@ -49,6 +49,7 @@
         <h1>Lista de Alunos</h1>
         <p:dataTable value="#{alunoMB.alunos}" var="a" border="2"
                      id="tabelaAluno">
+			<p:column headerText="ID" width="50">#{a.id}</p:column>
             <p:column headerText="Nome" width="300">#{a.nome}</p:column>
             <p:column headerText="CPF" width="200">#{a.cpf}</p:column>
             <p:column headerText="Idade" width="100">#{a.idade}</p:column>

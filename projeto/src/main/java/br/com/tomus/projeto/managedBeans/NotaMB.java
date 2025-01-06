@@ -36,7 +36,7 @@ public class NotaMB {
             throw new IllegalArgumentException("Aluno não encontrado para o ID fornecido.");
         }
 
-        nota.setAluno(alunoPersistido); // Associa o aluno à nota
+        nota.setAluno(alunoPersistido);
 
         if (nota.getId() == null) {
             notaDao.save(nota);
@@ -97,10 +97,5 @@ public class NotaMB {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
-    }
-
-    public String teste() {
-    	System.out.println("Teste!");
-    	return null;
     }
 }
