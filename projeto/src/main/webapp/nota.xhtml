@@ -7,51 +7,66 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Gestão de Notas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gestão de Notas</title>
+	<style>
+	body {
+		margin: 20px;
+		font-family: Arial, sans-serif;
+	}
+	
+	h1 {
+		color: #333;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	p:panelGrid {
+		margin-bottom: 20px;
+	}
+	</style>
 </head>
 <body>
+	<h:head />
 	<ui:include src="/navbar.xhtml" />
-    
+
 	<h1>Gestão de Notas</h1>
 	<h:form id="form">
-	
-        
-		<h:panelGrid columns="2">
-			<h:outputLabel value="AlunoID" />
-			<h:inputText value="#{notaMB.aluno.id}" />
-			<h:outputLabel value="Disciplina" />
-			<h:inputText value="#{notaMB.nota.disciplina}" />
-			<h:outputLabel value="Professor" />
-			<h:inputText value="#{notaMB.nota.professor}" />
-			<h:outputLabel value="Nota" />
-			<h:inputText value="#{notaMB.nota.nota}" />
-			<h:commandButton value="Salvar" action="#{notaMB.save}">
+		<p:panelGrid columns="2">
+			<p:outputLabel value="AlunoID" />
+			<p:inputText value="#{notaMB.aluno.id}" />
+			<p:outputLabel value="Disciplina" />
+			<p:inputText value="#{notaMB.nota.disciplina}" />
+			<p:outputLabel value="Professor" />
+			<p:inputText value="#{notaMB.nota.professor}" />
+			<p:outputLabel value="Nota" />
+			<p:inputText value="#{notaMB.nota.nota}" />
+			<p:commandButton value="Salvar" action="#{notaMB.save}">
 				<f:ajax render="@form tabelaNota" />
-			</h:commandButton>
-			<h:commandButton value="Limpar" action="#{notaMB.clearForm}">
+			</p:commandButton>
+			<p:commandButton value="Limpar" action="#{notaMB.clearForm}">
 				<f:ajax render="@form" />
-			</h:commandButton>
-		</h:panelGrid>
+			</p:commandButton>
+		</p:panelGrid>
 
-	<h1>Lista de Notas</h1>
-	<h:dataTable value="#{notaMB.notas}" var="n" border="2"
-		id="tabelaNota">
-		<h:column headerText="Data">#{n.data}</h:column>
-		<h:column headerText="Aluno">#{n.aluno.nome}</h:column>
-		<h:column headerText="Disciplina">#{n.disciplina}</h:column>
-		<h:column headerText="Professor">#{n.professor}</h:column>
-		<h:column headerText="Nota">#{n.nota}</h:column>
-		<h:column headerText="Ações" width="150">
-			<h:commandButton value="Editar" action="#{notaMB.edit(n)}">
-				<f:ajax render="@form" />
-			</h:commandButton>
-			<h:commandButton value="Excluir" action="#{notaMB.remove}">
-				<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}" />
-				<f:ajax render="@form tabelaNota" />
-			</h:commandButton>
-		</h:column>
-	</h:dataTable>
+		<h1>Lista de Notas</h1>
+		<p:dataTable value="#{notaMB.notas}" var="n" border="2"
+			id="tabelaNota">
+			<p:column headerText="Data">#{n.data}</p:column>
+			<p:column headerText="Aluno">#{n.aluno.nome}</p:column>
+			<p:column headerText="Disciplina">#{n.disciplina}</p:column>
+			<p:column headerText="Professor">#{n.professor}</p:column>
+			<p:column headerText="Nota">#{n.nota}</p:column>
+			<p:column headerText="Ações" width="150">
+				<p:commandButton value="Editar" action="#{notaMB.edit(n)}">
+					<f:ajax render="@form" />
+				</p:commandButton>
+				<p:commandButton value="Excluir" action="#{notaMB.remove}">
+					<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}" />
+					<f:ajax render="@form tabelaNota" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
 	</h:form>
 
 </body>
