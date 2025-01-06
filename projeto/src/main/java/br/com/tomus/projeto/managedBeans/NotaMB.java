@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import br.com.tomus.projeto.dao.AlunoDao;
 import br.com.tomus.projeto.dao.NotaDao;
+import br.com.tomus.projeto.models.Aluno;
 import br.com.tomus.projeto.models.Nota;
 
 @Component("notaMB")
@@ -17,21 +19,33 @@ import br.com.tomus.projeto.models.Nota;
 public class NotaMB {
 
     private Nota nota = new Nota();
-
+    
+    private Aluno aluno = new Aluno();
+    
     @Autowired
     private NotaDao notaDao;
+    
+    @Autowired
+    private AlunoDao alunoDao;
 
     private List<Nota> notas = new ArrayList<>();
 
     public String save() {
-    	if(nota.getId() == null) {
-    		notaDao.save(nota);
-    		notas.add(nota);    		
-    	} else {
-    		notaDao.update(nota);
-    		updateNotaList();
-    	}
-    	clearForm();
+        Aluno alunoPersistido = alunoDao.findById(aluno.getId());
+        if (alunoPersistido == null) {
+            throw new IllegalArgumentException("Aluno não encontrado para o ID fornecido.");
+        }
+
+        nota.setAluno(alunoPersistido); // Associa o aluno à nota
+
+        if (nota.getId() == null) {
+            notaDao.save(nota);
+            notas.add(nota);
+        } else {
+            notaDao.update(nota);
+            updateNotaList();
+        }
+        clearForm();
         return null;
     }
 
@@ -49,6 +63,7 @@ public class NotaMB {
     
     public void clearForm() {
     	nota = new Nota();
+    	aluno = new Aluno();
     }
     
     public void updateNotaList() {
@@ -76,6 +91,14 @@ public class NotaMB {
         this.notas = notas;
     }
     
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
     public String teste() {
     	System.out.println("Teste!");
     	return null;
