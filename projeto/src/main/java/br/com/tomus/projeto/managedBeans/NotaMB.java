@@ -58,6 +58,7 @@ public class NotaMB {
     
     public String edit(Nota selectedNota) {
     	this.nota = selectedNota;
+    	this.aluno.setId(selectedNota.getAluno().getId());
     	return null;
     }
     

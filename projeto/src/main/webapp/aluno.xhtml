@@ -53,7 +53,7 @@
             <p:column headerText="Nome" width="300">#{a.nome}</p:column>
             <p:column headerText="CPF" width="200">#{a.cpf}</p:column>
             <p:column headerText="Idade" width="100">#{a.idade}</p:column>
-            <p:column headerText="Ações" width="80">
+            <p:column headerText="Ações" width="100">
                 <p:commandButton value="Editar" action="#{alunoMB.edit(a)}" update="tabelaAluno form">
                     <f:ajax execute="@form" render="@form" />
                 </p:commandButton>

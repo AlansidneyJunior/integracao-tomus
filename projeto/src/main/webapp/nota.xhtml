@@ -61,8 +61,8 @@
 				<p:commandButton value="Editar" action="#{notaMB.edit(n)}" update="tabelaNota form">
 					<f:ajax render="@form" />
 				</p:commandButton>
-				<p:commandButton value="Excluir" action="#{notaMB.remove}">
-					<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}" update="tabelaNota form"/>
+				<p:commandButton value="Excluir" action="#{notaMB.remove}" update="tabelaNota form">
+					<f:setPropertyActionListener value="#{n}" target="#{notaMB.nota}"/>
 					<f:ajax render="@form tabelaNota" />
 				</p:commandButton>
 			</p:column>
