@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import br.com.tomus.projeto.dao.AlunoDao;
 import br.com.tomus.projeto.dao.NotaDao;
@@ -15,7 +15,7 @@ import br.com.tomus.projeto.models.Aluno;
 import br.com.tomus.projeto.models.Nota;
 
 @Component("notaMB")
-@SessionScope
+@RequestScope
 public class NotaMB {
 
     private Nota nota = new Nota();
@@ -30,6 +30,10 @@ public class NotaMB {
 
     private List<Nota> notas = new ArrayList<>();
 
+//    public NotaMB(){
+//    	updateNotaList();
+//    }
+    
     public String save() {
         Aluno alunoPersistido = alunoDao.findById(aluno.getId());
         if (alunoPersistido == null) {

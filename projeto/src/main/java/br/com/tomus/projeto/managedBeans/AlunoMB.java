@@ -7,13 +7,13 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.SessionScope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import br.com.tomus.projeto.dao.AlunoDao;
 import br.com.tomus.projeto.models.Aluno;
 
 @Component("alunoMB")
-@SessionScope
+@RequestScope
 public class AlunoMB {
 
     private Aluno aluno = new Aluno();
