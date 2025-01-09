@@ -19,7 +19,7 @@
     <h:form id="form">
         <p:outputLabel value="Id" for="id" style="display:none"/>
         <p:inputText id="id" value="#{alunoMB.aluno.id}" style="display:none"/>
-        <p:messages/>
+        <p:messages showDetail=""/>
         <p:panelGrid columns="2" styleClass="panel-grid">
             <p:outputLabel value="Nome" for="nome" />
             <p:inputText id="nome" value="#{alunoMB.aluno.nome}" required="true" requiredMessage="O campo NOME é necessário."/>
