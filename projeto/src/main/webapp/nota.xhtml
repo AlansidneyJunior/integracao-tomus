@@ -32,6 +32,8 @@
 
 	<h1>Gestão de Notas</h1>
 	<h:form id="form">
+		<p:outputLabel value="Id" for="id" style="display:none"/>
+        <p:inputText id="id" value="#{notaMB.nota.id}" style="display:none"/>
 		<p:panelGrid columns="2">
 			<p:outputLabel value="AlunoID" />
 			<p:inputText value="#{notaMB.aluno.id}" />

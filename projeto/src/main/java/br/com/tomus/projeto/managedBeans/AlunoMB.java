@@ -26,7 +26,7 @@ public class AlunoMB {
     public String save() {
     	if(aluno.getId() == null) {
     		alunoDao.save(aluno);
-    		alunos.add(aluno);    		
+    		alunos.add(aluno);
     	} else {
     		alunoDao.update(aluno);
     	}
@@ -43,6 +43,7 @@ public class AlunoMB {
     }
     
     public String edit(Aluno selectedAluno) {
+    	
     	this.aluno = selectedAluno;
     	return null;
     }
