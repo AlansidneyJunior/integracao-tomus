@@ -6,29 +6,14 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Gestão de Notas</title>
-	<style>
-	body {
-		margin: 20px;
-		font-family: Arial, sans-serif;
-	}
 	
-	h1 {
-		color: #333;
-		text-align: center;
-		margin-bottom: 20px;
-	}
-	
-	p:panelGrid {
-		margin-bottom: 20px;
-	}
-	</style>
-</head>
-<body>
+</h:head>
+<h:body>
 	<h:head />
-	<ui:include src="/navbar.xhtml" />
+	<ui:include src="navbar.xhtml" />
 
 	<h1>Gestão de Notas</h1>
 	<h:form id="form">
@@ -71,5 +56,5 @@
 		</p:dataTable>
 	</h:form>
 
-</body>
+</h:body>
 </html>

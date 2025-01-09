@@ -23,7 +23,7 @@
 	</servlet-mapping>
 
 	<welcome-file-list>
-		<welcome-file>faces/aluno.xhtml</welcome-file>
+		<welcome-file>faces/pages/aluno.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<context-param>

@@ -6,40 +6,27 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Gestão de Alunos</title>
-    <style>
-        body {
-            margin: 20px;
-            font-family: Arial, sans-serif;
-        }
+    <h:outputStylesheet library="css" name="styles.css" />
+</h:head>
 
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        p:panelGrid {
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h:head />
-    <ui:include src="/navbar.xhtml" />
+<h:body>
+    
+    <ui:include src="navbar.xhtml" />
     <h1>Gestão de Alunos</h1>
     <h:form id="form">
         <p:outputLabel value="Id" for="id" style="display:none"/>
         <p:inputText id="id" value="#{alunoMB.aluno.id}" style="display:none"/>
-        <p:panelGrid columns="2">
+        <p:messages/>
+        <p:panelGrid columns="2" styleClass="panel-grid">
             <p:outputLabel value="Nome" for="nome" />
-            <p:inputText id="nome" value="#{alunoMB.aluno.nome}" />
+            <p:inputText id="nome" value="#{alunoMB.aluno.nome}" required="true" requiredMessage="O campo NOME é necessário."/>
             <p:outputLabel value="CPF" for="cpf" />
-            <p:inputText id="cpf" value="#{alunoMB.aluno.cpf}" />
+            <p:inputText id="cpf" value="#{alunoMB.aluno.cpf}" required="true" requiredMessage="O campo CPF é necessário."/>
             <p:outputLabel value="Idade" for="idade" />
-            <p:inputText id="idade" value="#{alunoMB.aluno.idade}" />
+            <p:inputText id="idade" value="#{alunoMB.aluno.idade}" required="true" requiredMessage="O campo IDADE é necessário."/>
             <p:commandButton value="Salvar" action="#{alunoMB.save}" update="tabelaAluno form">
                 <f:ajax execute="@form" render="tabelaAluno" />
             </p:commandButton>
@@ -66,5 +53,6 @@
             </p:column>
         </p:dataTable>
     </h:form>
-</body>
+    
+</h:body>
 </html>

@@ -29,10 +29,6 @@ public class NotaMB {
     private AlunoDao alunoDao;
 
     private List<Nota> notas = new ArrayList<>();
-
-//    public NotaMB(){
-//    	updateNotaList();
-//    }
     
     public String save() {
         Aluno alunoPersistido = alunoDao.findById(aluno.getId());

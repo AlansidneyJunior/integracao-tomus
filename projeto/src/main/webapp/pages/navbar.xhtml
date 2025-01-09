@@ -3,41 +3,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<head>
+<h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Navbar</title>
-    <style>
-        .navbar {
-    background-color: white; /* Fundo branco */
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-logo {
-    height: 40px; /* Ajuste o tamanho da logo conforme necessário */
-    margin-right: 15px;
-}
-
-.navbar-item {
-    color: blue; /* Links em azul */
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.navbar-item:hover {
-    color: darkblue; /* Azul mais escuro quando hover */
-}
-
-.separator {
-    margin: 0 5px;
-    color: gray;
-}
-    </style>
-</head>
+    <h:outputStylesheet library="css" name="styles.css" />
+</h:head>
 
 <body>
     <h:form id="navbarForm">
