@@ -19,15 +19,16 @@
 	<h:form id="form">
 		<p:outputLabel value="Id" for="id" style="display:none"/>
         <p:inputText id="id" value="#{notaMB.nota.id}" style="display:none"/>
+        <p:messages showDetail="true"/>
 		<p:panelGrid columns="2">
-			<p:outputLabel value="AlunoID" />
+			<p:outputLabel value="AlunoID" required="true" requiredMessage="O campo ALUNOID é necessário."/>
 			<p:inputText value="#{notaMB.aluno.id}" />
 			<p:outputLabel value="Disciplina" />
-			<p:inputText value="#{notaMB.nota.disciplina}" />
+			<p:inputText value="#{notaMB.nota.disciplina} required="true" requiredMessage="O campo DISCIPLINA é necessário."" />
 			<p:outputLabel value="Professor" />
-			<p:inputText value="#{notaMB.nota.professor}" />
+			<p:inputText value="#{notaMB.nota.professor}" required="true" requiredMessage="O campo PROFESSOR é necessário."/>
 			<p:outputLabel value="Nota" />
-			<p:inputText value="#{notaMB.nota.nota}" />
+			<p:inputText value="#{notaMB.nota.nota}" required="true" requiredMessage="O campo NOTA é necessário."/>
 			<p:commandButton value="Salvar" action="#{notaMB.save}" update="tabelaNota form">
 				<f:ajax render="@form tabelaNota" />
 			</p:commandButton>
