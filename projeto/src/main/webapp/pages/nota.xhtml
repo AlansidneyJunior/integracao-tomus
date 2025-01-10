@@ -20,16 +20,15 @@
         <h3>Cadastro de Notas</h3>
 		<p:outputLabel value="Id" for="id" style="display:none"/>
         <p:inputText id="id" value="#{notaMB.nota.id}" style="display:none"/>
-        <p:messages/>
 		<p:panelGrid columns="2">
 			<p:outputLabel value="AlunoID" for="alunoId"/>
-			<p:inputText id="alunoId" value="#{notaMB.aluno.id}" required="true" requiredMessage="O campo ALUNOID é necessário."/>
+			<p:inputText id="alunoId" value="#{notaMB.aluno.id}"/>
 			<p:outputLabel value="Disciplina" for="disciplina"/>
-			<p:inputText id="disciplina" value="#{notaMB.nota.disciplina}" required="true" requiredMessage="O campo DISCIPLINA é necessário." />
+			<p:inputText id="disciplina" value="#{notaMB.nota.disciplina}"/>
 			<p:outputLabel value="Professor" for="professor"/>
-			<p:inputText id="professor" value="#{notaMB.nota.professor}" required="true" requiredMessage="O campo PROFESSOR é necessário."/>
+			<p:inputText id="professor" value="#{notaMB.nota.professor}"/>
 			<p:outputLabel value="Nota" for="nota"/>
-			<p:inputText id="nota" value="#{notaMB.nota.nota}" required="true" requiredMessage="O campo NOTA é necessário."/>
+			<p:inputText id="nota" value="#{notaMB.nota.nota}"/>
 			<p:commandButton value="Salvar" action="#{notaMB.save}" update="tabelaNota form">
 				<f:ajax render="@form tabelaNota" />
 			</p:commandButton>
@@ -37,6 +36,7 @@
 				<f:ajax render="@form" />
 			</p:commandButton>
 		</p:panelGrid>
+        <p:messages/>
 
 		<h1>Lista de Notas</h1>
 		<p:dataTable value="#{notaMB.notas}" var="n" border="2"

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,6 +35,7 @@ public class NotaMB {
     public String save() {
         Aluno alunoPersistido = alunoDao.findById(aluno.getId());
         if (alunoPersistido == null) {
+        	FacesContext.getCurrentInstance().addMessage("", new FacesMessage(FacesMessage.SEVERITY_ERROR,"ERRO: AlunoID NÃO encontrado.", "ERRO: AlunoID NÃO encontrado."));
             throw new IllegalArgumentException("Aluno não encontrado para o ID fornecido.");
         }
 
@@ -41,8 +44,10 @@ public class NotaMB {
         if (nota.getId() == null) {
             notaDao.save(nota);
             notas.add(nota);
+            FacesContext.getCurrentInstance().addMessage("", new FacesMessage("SUCESSO: Nota cadastrada.", "Nota cadastrada com Sucesso."));
         } else {
             notaDao.update(nota);
+            FacesContext.getCurrentInstance().addMessage("", new FacesMessage("SUCESSO: Nota atualizada.", "Nota atualizada com Sucesso."));
         }
         updateNotaList();
         clearForm();
@@ -52,6 +57,7 @@ public class NotaMB {
     public String remove() {
         notaDao.remove(nota.getId());
         updateNotaList();
+        FacesContext.getCurrentInstance().addMessage("", new FacesMessage("SUCESSO: Nota REMOVIDA.", "SUCESSO: Nota REMOVIDA."));
         clearForm();
         return null;
     }
@@ -59,6 +65,7 @@ public class NotaMB {
     public String edit(Nota selectedNota) {
     	this.nota = selectedNota;
     	this.aluno.setId(selectedNota.getAluno().getId());
+    	FacesContext.getCurrentInstance().addMessage("", new FacesMessage(FacesMessage.SEVERITY_WARN,"MODO DE EDIÇÃO: Atualize os dados do aluno.", "MODO DE EDIÇÃO: Atualize os dados do aluno."));
     	return null;
     }
     
